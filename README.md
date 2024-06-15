@@ -1,5 +1,7 @@
 # Clock Note
-
+<div align="center">
+    <img src="./Image/Logo/CLOCK_LIFE.png"/><h2>Clock Note</h2>
+</div>
 
 
 ## Getting started
