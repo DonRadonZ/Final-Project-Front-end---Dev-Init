@@ -1,6 +1,6 @@
 
 <div align="center">
-    <img src="./Image/Logo/CLOCK_LIFE.png" alt="drawing" width="100"/><h2>Clock Note</h2>
+    <img src="./Image/Logo/CLOCK_NOTE.png" alt="drawing" width="100"/><h2>Clock Note</h2>
 </div>
 
 <div align="center">
