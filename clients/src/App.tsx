@@ -1,12 +1,16 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 
 function App() {
 
 
   return (
-    <div>
-        Hello world
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<AppLayout />}>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
