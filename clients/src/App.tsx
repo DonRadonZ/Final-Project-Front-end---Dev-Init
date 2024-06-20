@@ -1,33 +1,18 @@
-import {createBrowserRouter, RouterProvider } from "react-router-dom"
-import AppLayout from "./components/ui/AppLayout"
-import Dashboard from "./page/Dashboard";
-import Todo from "./page/Todo";
-import Notes from "./page/Notes";
-
-
-const router = createBrowserRouter([
-  {
-    element: <AppLayout />,
-    children: [
-      {
-        path: '/',
-        element: <Dashboard/>,
-      },
-      {
-        path: '/todo',
-        element: <Todo/>,
-      },
-      {
-        path: '/notes',
-        element: <Notes/>,
-      },
-    ]
-  },
-]);
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from '@fullcalendar/daygrid'
 
 export default function App() {
   return (
-    <RouterProvider router={router} />
+    <div className="bg-white w-auto mt-5 shadow rounded-lg p-10">
+    <FullCalendar
+        plugins={[dayGridPlugin]}
+        initialView='dayGridMonth'
+        // weekends={false}
+        height={640}
+        // events={events}
+        // eventContent={renderEventContent}
+      />
+    </div>
   )
 }
 
