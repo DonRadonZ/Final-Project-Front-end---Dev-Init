@@ -7,10 +7,10 @@ import Header from "./Header";
 export default function AppLayout() {
     // const navigation = useNavigation();
   return (
-    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
+    <div>
     <Header/>
     
-      <main className="mx-auto max-w-3xl bg-gray-100"> 
+      <main className="flex"> 
         <Outlet/>    
       </main>
     
