@@ -3,16 +3,21 @@
 
 export default function Navigation() {
   return (
-    <ul>
+    <nav className="z-10 text-xl">
+    <ul className="flex gap-8 items-center">
         <li>
             <a href="/">Dashboard</a>
+        </li>
+        <li>
+            <a href="/calendar">Calendar</a>
         </li>
         <li>
             <a href="/todo">Todo</a>
         </li>
         <li>
-            <a href="/note">Note</a>
+            <a href="/notes">Note</a>
         </li>
     </ul>
+    </nav>
   )
 }
