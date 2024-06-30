@@ -1,7 +1,13 @@
-import React from 'react'
+
 
 export default function Notes() {
   return (
-    <h1>Notes</h1>
+    <div>
+      <div className='flex justify-between items-center'>
+        <h1 className='font-bold text-6xl'>Note List</h1>
+        
+        <a href="">Add New Note</a>
+      </div>
+    </div>
   )
 }
