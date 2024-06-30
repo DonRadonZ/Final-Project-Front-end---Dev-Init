@@ -1,21 +1,20 @@
-import { Calendar,momentLocalizer } from "react-big-calendar";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from '@fullcalendar/daygrid'
 
-import moment from 'moment'
 
 
-const localizer = momentLocalizer(moment)
 
 export default function Calendars() {
   return (
-    <div>
-      
-      <Calendar
-      localizer={localizer}
-      // events={myEventsList}
-      startAccessor="start"
-      endAccessor="end"
-      style={{height:500, margin: "50px"}}
-    />
+    <div className="bg-white w-[64rem] mt-5 shadow rounded-lg p-10">
+    <FullCalendar
+        plugins={[dayGridPlugin]}
+        initialView='dayGridMonth'
+        // weekends={false}
+        height={720}
+        // events={events}
+        // eventContent={renderEventContent}
+      />
     </div>
   )
 }
