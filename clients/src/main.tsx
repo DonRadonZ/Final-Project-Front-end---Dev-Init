@@ -8,6 +8,8 @@ import AppLayout from './components/ui/AppLayout.tsx';
 import Todo from './page/Todo.tsx';
 import Notes from './page/Notes.tsx';
 
+import CalendarPage from './page/Calendar.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <App/>,
+      },
+      {
+        path: '/calendar',
+        element: <CalendarPage/>,
       },
       {
         path: '/todo',
