@@ -6,7 +6,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 
 export default function Calendars() {
   return (
-    <div className="bg-white w-[64rem] mt-5 shadow rounded-lg p-10">
+    <div className="bg-white w-[84rem] shadow rounded-lg p-10">
     <FullCalendar
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
