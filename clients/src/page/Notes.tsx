@@ -1,3 +1,5 @@
+import NoteList from "../components/ui/NoteList";
+
 
 
 export default function Notes() {
@@ -8,6 +10,7 @@ export default function Notes() {
         
         <a href="" className="bg-white py-3 px-5 rounded-md">New Note</a>
       </div>
+    <NoteList/>
     </div>
   )
 }
