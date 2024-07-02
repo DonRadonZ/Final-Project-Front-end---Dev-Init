@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: '/notes',
         element: <Notes/>,
-      },
+      },  
     ]
   },
 ]);
