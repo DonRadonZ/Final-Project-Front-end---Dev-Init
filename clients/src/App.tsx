@@ -9,7 +9,8 @@ export default function App() {
       <Calendars/>
       <div className="w-[500px]">
       <div className="flex justify-between gap-7">
-      <div className="text-center bg-white w-full  h-48 rounded-md"><h1 className="text-xl mb-7 ">Progress</h1><div className="radial-progress  text-orange-500" style={{ "--value": "70", "--size": "7rem" }}>
+      <div className="text-center bg-white w-full  h-48 rounded-md"><h1 className="text-xl mb-7 ">Progress</h1>
+      <div className="radial-progress  text-orange-500" style={{ "--value": "70", "--size": "7rem" }}>
         70%</div></div>
       <div className="text-center items-center bg-white
       w-full h-48 rounded-md"><h1 className="text-xl">Reward</h1></div>
