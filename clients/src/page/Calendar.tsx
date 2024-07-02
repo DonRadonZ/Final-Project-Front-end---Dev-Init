@@ -18,7 +18,7 @@ export default function CalendarPage() {
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
         // weekends={false}
-        height={640}
+        height={665}
         // events={events}
         // eventContent={renderEventContent}
       />
