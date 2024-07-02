@@ -10,7 +10,7 @@ export default function AppLayout() {
     <div>
     <Header/>
     
-      <main className="p-[2rem]  w-full"> 
+      <main className="p-[2rem] h-[92.5dvh] w-full"> 
         <Outlet/>    
       </main>
     
