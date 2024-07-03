@@ -4,7 +4,7 @@ import { HiXCircle } from "react-icons/hi2";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function AddEvent({onClose}) {
+export default function AddEvent({onClose, eventTitle, eventDate}) {
     const [startDate, setStartDate] = useState(new Date());
   return (
     <div className="relative">
@@ -18,6 +18,7 @@ export default function AddEvent({onClose}) {
         <label className="text-xs text-slate-400">TITLE</label>
         <input
           type="text"
+          value={eventTitle}
           className="text-2xl text-slate-900 p-2
           bg-gray-200 outline-none rounded"
           placeholder="Type title here..."
@@ -25,7 +26,7 @@ export default function AddEvent({onClose}) {
       </div>
       <div className="flex flex-col gap-2 mt-4">
       <label className="text-xs text-slate-400">DATE</label>
-      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+      <DatePicker value={eventDate} selected={startDate} onChange={(date) => setStartDate(date)} />
 
       <button className="bg-blue-500 w-full font-medium mt-5 p-3" onClick={() => {}}>
         ADD
