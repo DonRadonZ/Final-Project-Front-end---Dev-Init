@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddEditTodo from "../features/todo/AddEditTodo";
 import Modal from "react-modal";
 
 
 export default function Todo() {
+  const [todos, setTodos] = useState([])
+  const [todoTitle, setTodoTitle] = useState("");
+  const [todoDetails, setTodoDetails] = useState("");
+
+  function handleTodoTitleChange(e) {
+    setTodoTitle(e.target.value)
+  }
+
+  function handleTodoDetailsChange(e) {
+    setTodoDetails(e.target.value)
+  }
+
+
   const [openAddModal, setOpenAddModal] = useState({
     isShown: false,
     type: "add",
@@ -28,7 +41,7 @@ export default function Todo() {
       contentLabel=""
       className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
       >
-      <AddEditTodo onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})}/>
+        <AddEditTodo onClose={() => setOpenAddModal({ isShown: false, type: "add", data: null })} onTitleChange={handleTodoTitleChange} onDetailChange={handleTodoDetailsChange} todoTitle={todoTitle} todoDetails={todoDetails} />
       </Modal>
     </>
   )

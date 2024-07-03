@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from '@fullcalendar/daygrid';import interactionPlugin from '@fullcalendar/interaction';
 import Modal from "react-modal";
@@ -11,6 +11,8 @@ export default function CalendarPage() {
   const [eventTitle, setEventTitle] = useState('');
   const [eventDate, setEventDate] = useState('');
 
+  useEffect(function(){},[])
+
   function handleEventTitle(e){
     setEventTitle(e.target.value);
   }
@@ -18,6 +20,7 @@ export default function CalendarPage() {
   function handleEventDate(e){
     setEventDate(e.target.value);
   }
+
 
 
   const [openAddModal, setOpenAddModal] = useState({
