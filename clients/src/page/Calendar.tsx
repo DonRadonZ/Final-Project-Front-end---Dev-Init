@@ -1,12 +1,25 @@
 import { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from '@fullcalendar/daygrid';
+import dayGridPlugin from '@fullcalendar/daygrid';import interactionPlugin from '@fullcalendar/interaction';
 import Modal from "react-modal";
 import AddEvent from "../features/calendar/AddEvent";
 
 
 
 export default function CalendarPage() {
+  const [events, setEvents] = useState([]);
+  const [eventTitle, setEventTitle] = useState('');
+  const [eventDate, setEventDate] = useState('');
+
+  function handleEventTitle(e){
+    setEventTitle(e.target.value);
+  }
+
+  function handleEventDate(e){
+    setEventDate(e.target.value);
+  }
+
+
   const [openAddModal, setOpenAddModal] = useState({
     isShown: false,
     type: "add",
@@ -23,11 +36,10 @@ export default function CalendarPage() {
       </div>
       <div className="w-full mt-5 rounded-lg p-10 bg-white">
       <FullCalendar
-        plugins={[dayGridPlugin]}
+        plugins={[dayGridPlugin, interactionPlugin]}
         initialView='dayGridMonth'
-        // weekends={false}
         height={665}
-        // events={events}
+        events={events}
         // eventContent={renderEventContent}
       />
       </div>
@@ -42,7 +54,7 @@ export default function CalendarPage() {
     contentLabel=""
     className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
     >
-      <AddEvent onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})}/>
+      <AddEvent eventTitle={eventTitle} eventDate={eventDate} onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})}/>
     </Modal>
     </>
     
