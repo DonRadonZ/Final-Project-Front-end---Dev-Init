@@ -2,6 +2,15 @@
 import { HiXCircle } from 'react-icons/hi2'
 
 export default function AddEditTodo({onClose}) {
+
+  function addNewTodo(){
+
+  }
+
+  function editTodo(){
+    
+  }
+
   return (
     <div className="relative">
     <button

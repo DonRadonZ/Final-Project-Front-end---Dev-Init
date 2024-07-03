@@ -1,7 +1,21 @@
+import { useState } from "react";
 import { HiXCircle } from "react-icons/hi2";
 
 
-export default function AddNote({onClose}) {
+export default function AddEditNotes({onClose}) {
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
+
+  
+
+  function addNewNote(){
+
+  }
+
+  function editNote(){
+    
+  }
+
   return (
     <div className="relative">
     <button
@@ -14,6 +28,7 @@ export default function AddNote({onClose}) {
         <label className="text-xs text-slate-400">TITLE</label>
         <input
           type="text"
+          id="title"
           className="text-2xl text-slate-900 p-2
           bg-gray-200 outline-none rounded"
           placeholder="Type title here..."
@@ -23,6 +38,7 @@ export default function AddNote({onClose}) {
       <label className="text-xs text-slate-400">Description</label>
         <textarea
         type="text"
+        id="description"
         className="text-sm text-slate-900 outline-none bg-gray-200 p-2 rounded"
         placeholder="Write something here..."
         rows={10}
