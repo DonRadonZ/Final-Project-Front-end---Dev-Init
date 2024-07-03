@@ -1,7 +1,7 @@
 
 import { HiXCircle } from 'react-icons/hi2'
 
-export default function AddEditTodo({onClose}) {
+export default function AddEditTodo({onClose, onTitleChange, onDetailChange, todoTitle, todoDetails}: any) {
 
   function addNewTodo(){
 
@@ -23,6 +23,8 @@ export default function AddEditTodo({onClose}) {
         <label className="text-xs text-slate-400">TITLE</label>
         <input
           type="text"
+          value={todoTitle}
+          onChange={onTitleChange}
           className="text-2xl text-slate-900 p-2
           bg-gray-200 outline-none rounded"
           placeholder="Type title here..."
@@ -31,7 +33,9 @@ export default function AddEditTodo({onClose}) {
       <div className="flex flex-col gap-2 mt-4">
       <label className="text-xs text-slate-400">DETAILS</label>
         <textarea
-        type="text"
+          type="text"
+          value={todoDetails}
+          onChange={onDetailChange}
         className="text-sm text-slate-900 outline-none bg-gray-200 p-2 rounded resize-none"
         placeholder="Write something here..."
         rows={10}
