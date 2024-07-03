@@ -16,6 +16,13 @@ export default function Notes() {
   function handleNoteDescriptionChange(e) { 
     setNoteDescription(e.target.value)
   }
+  
+
+  function addNewNote(note){
+    const newNotes = [...notes, note];
+    setNotes(newNotes);
+    
+  }
 
   const [openAddModal, setOpenAddModal] = useState({
     isShown: false,
@@ -47,7 +54,7 @@ export default function Notes() {
     contentLabel=""
     className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
     >
-        <AddEditNotes onClose={() => setOpenAddModal({ isShown: false, type: "add", data: null })} onTitleChange={handleNoteTitleChange} onDescriptionChange={handleNoteDescriptionChange} noteTitle={noteTitle} noteDescription={noteDescription} />
+        <AddEditNotes onClose={() => setOpenAddModal({ isShown: false, type: "add", data: null })} onTitleChange={handleNoteTitleChange} onDescriptionChange={handleNoteDescriptionChange} noteTitle={noteTitle} noteDescription={noteDescription} notes={notes} />
     </Modal>
     </>
   )

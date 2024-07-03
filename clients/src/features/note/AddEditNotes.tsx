@@ -7,10 +7,7 @@ export default function AddEditNotes({onClose, noteTitle, noteDescription, onTit
 
   
 
-  function addNewNote(){
-    
-    
-  }
+  
 
   function editNote(){
     
