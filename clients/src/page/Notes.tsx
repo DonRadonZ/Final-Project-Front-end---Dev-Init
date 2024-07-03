@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NoteList from "../components/ui/NoteList";
-import AddNote from "../features/note/AddNote";
+import AddEditNotes from "../features/note/AddEditNotes";
 import Modal from "react-modal";
 
 
@@ -31,7 +31,7 @@ export default function Notes() {
     contentLabel=""
     className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
     >
-    <AddNote onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})}/>
+    <AddEditNotes onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})}/>
     </Modal>
     </>
   )
