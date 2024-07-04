@@ -1,9 +1,11 @@
-import React from 'react'
+import TodoCard from "./TodoCard";
 
-export default function TodoList() {
+
+export default function TodoList({editTodo ,todos}: any) {
   return (
-    <div>
-      
-    </div>
+    todos.map((todo, index) => (
+      <TodoCard key={index} title={todo.title} detail={todo.detail} date={todo.date} onEdit={editTodo} />
+    ))
+    
   )
 }

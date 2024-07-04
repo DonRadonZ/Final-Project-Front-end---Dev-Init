@@ -12,7 +12,11 @@ export default function CalendarPage() {
   const [eventTitle, setEventTitle] = useState('');
   const [eventDate, setEventDate] = useState('');
 
-  useEffect(function(){},[])
+  const [openAddModal, setOpenAddModal] = useState({
+    isShown: false,
+    type: "add",
+    data: null,
+  });
 
   function handleEventTitle(e){
     setEventTitle(e.target.value);
@@ -30,16 +34,17 @@ export default function CalendarPage() {
       setEvents(updateEvent);
       setEventTitle('');
       setEventDate('');
+      setOpenAddModal({
+      isShown: false,
+      type: "add",
+      data: null,
+  })
     }
   }
 
 
 
-  const [openAddModal, setOpenAddModal] = useState({
-    isShown: false,
-    type: "add",
-    data: null,
-  });
+  
 
   return (
      

@@ -11,7 +11,7 @@ export default function NoteCard({
     content,
     onEdit, 
     onDelete
-}) {
+}: any) {
   return (
     <div className='bg-green-400 rounded-lg p-4 min-h-44 flex flex-col justify-between'>
         <h2 className='font-bold text-2xl'>{title}</h2>

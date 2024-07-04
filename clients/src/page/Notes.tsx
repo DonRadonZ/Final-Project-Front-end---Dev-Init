@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NoteList from "../components/ui/NoteList";
 import AddEditNotes from "../features/note/AddEditNotes";
 import Modal from "react-modal";
@@ -36,10 +36,13 @@ export default function Notes() {
       const formattedDate =  formatDate(noteDate);
       const updatedNotes = [...notes, { title: noteTitle, description: noteDescription, date: formattedDate}];
       setNotes(updatedNotes);
-      console.log(updatedNotes);
       setNoteTitle('');
       setNoteDescription('');
-      
+      setOpenAddModal({
+    isShown: false,
+    type: "add",
+    data: null,
+    })
     }
   }
 
@@ -69,7 +72,17 @@ export default function Notes() {
     contentLabel=""
     className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
     >
-        <AddEditNotes onClose={() => setOpenAddModal({ isShown: false, type: "add", data: null })} onTitleChange={handleNoteTitleChange} onDescriptionChange={handleNoteDescriptionChange} noteTitle={noteTitle} noteDescription={noteDescription} notes={notes} onAddNote={addNewNote} />
+        <AddEditNotes
+          type={openAddModal.type}
+          noteData={openAddModal.data}
+          onClose={() => setOpenAddModal({ isShown: false, type: "add", data: null })}
+          onTitleChange={handleNoteTitleChange}
+          onDescriptionChange={handleNoteDescriptionChange}
+          noteTitle={noteTitle}
+          noteDescription={noteDescription}
+          notes={notes}
+          onAddNote={addNewNote}
+        />
     </Modal>
     </>
   )
