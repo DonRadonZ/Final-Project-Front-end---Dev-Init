@@ -3,11 +3,12 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from '@fullcalendar/daygrid';import interactionPlugin from '@fullcalendar/interaction';
 import Modal from "react-modal";
 import AddEvent from "../features/calendar/AddEvent";
+import useCalendarLocalStorage from "../features/calendar/useCalendarLocalStorage";
 
 
 
 export default function CalendarPage() {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useCalendarLocalStorage([], 'calendar');
   const [eventTitle, setEventTitle] = useState('');
   const [eventDate, setEventDate] = useState('');
 
@@ -19,6 +20,17 @@ export default function CalendarPage() {
 
   function handleEventDate(e){
     setEventDate(e.target.value);
+  }
+
+  function newEvent(){
+    if(eventTitle && eventDate){
+
+      const updateEvent = [...events,{title: eventTitle, date: eventDate}];
+
+      setEvents(updateEvent);
+      setEventTitle('');
+      setEventDate('');
+    }
   }
 
 
@@ -57,7 +69,7 @@ export default function CalendarPage() {
     contentLabel=""
     className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
     >
-      <AddEvent eventTitle={eventTitle} eventDate={eventDate} onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})}/>
+      <AddEvent eventTitle={eventTitle} eventDate={eventDate} onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})} onDate={handleEventDate} onTitle={handleEventTitle} onEvent={newEvent}/>
     </Modal>
     </>
     

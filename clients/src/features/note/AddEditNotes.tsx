@@ -2,7 +2,7 @@
 import { HiXCircle } from "react-icons/hi2";
 
 
-export default function AddEditNotes({onClose, noteTitle, noteDescription, onTitleChange, onDescriptionChange}: any) {
+export default function AddEditNotes({onClose, noteTitle, noteDescription, onTitleChange, onDescriptionChange, onAddNote}: any) {
   
 
   
@@ -46,7 +46,7 @@ export default function AddEditNotes({onClose, noteTitle, noteDescription, onTit
         />
       </div>
 
-      <button className="bg-blue-500 w-full font-medium mt-5 p-3" onClick={() => {}}>
+      <button className="bg-blue-500 w-full font-medium mt-5 p-3" onClick={onAddNote}>
         ADD
       </button>
     </div>
