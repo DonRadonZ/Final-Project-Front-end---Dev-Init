@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import AddEditTodo from "../features/todo/AddEditTodo";
 import Modal from "react-modal";
+import useTodoLocalStorage from "../features/todo/useTodoLocalStorage";
 
 
 export default function Todo() {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useTodoLocalStorage([], 'todos')
   const [todoTitle, setTodoTitle] = useState("");
   const [todoDetails, setTodoDetails] = useState("");
 

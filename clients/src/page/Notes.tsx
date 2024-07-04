@@ -2,27 +2,13 @@ import { useEffect, useState } from "react";
 import NoteList from "../components/ui/NoteList";
 import AddEditNotes from "../features/note/AddEditNotes";
 import Modal from "react-modal";
+import useNoteLocalStorage from "../features/note/useNoteLocalStorage";
 
 
 export default function Notes() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useNoteLocalStorage([],'notes');
   const [noteTitle, setNoteTitle] = useState("");
   const [noteDescription, setNoteDescription] = useState("");
-
-  function handleNoteTitleChange(e) {
-    setNoteTitle(e.target.value)
-  }
-
-  function handleNoteDescriptionChange(e) { 
-    setNoteDescription(e.target.value)
-  }
-  
-
-  function addNewNote(note){
-    const newNotes = [...notes, note];
-    setNotes(newNotes);
-    
-  }
 
   const [openAddModal, setOpenAddModal] = useState({
     isShown: false,
@@ -30,7 +16,36 @@ export default function Notes() {
     data: null,
   });
 
-  useEffect(function () { }, []);
+  function handleNoteTitleChange(e) {
+    setNoteTitle(e.target.value);
+  }
+
+  function handleNoteDescriptionChange(e) { 
+    setNoteDescription(e.target.value);
+  }
+
+  function formatDate(date){
+    return date.toDateString() + " " + date.toTimeString().split(" ")[0];
+  }
+  
+  
+
+  function addNewNote(){
+    if (noteTitle && noteDescription){
+      const noteDate = new Date();
+      const formattedDate =  formatDate(noteDate);
+      const updatedNotes = [...notes, { title: noteTitle, description: noteDescription, date: formattedDate}];
+      setNotes(updatedNotes);
+      console.log(updatedNotes);
+      setNoteTitle('');
+      setNoteDescription('');
+      
+    }
+  }
+
+  
+
+  
 
   
 
@@ -41,7 +56,7 @@ export default function Notes() {
         
         <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>New Note</button>
       </div>
-    <NoteList/>
+    <NoteList notes={notes}/>
     
     <Modal
     isOpen={openAddModal.isShown}
@@ -54,7 +69,7 @@ export default function Notes() {
     contentLabel=""
     className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
     >
-        <AddEditNotes onClose={() => setOpenAddModal({ isShown: false, type: "add", data: null })} onTitleChange={handleNoteTitleChange} onDescriptionChange={handleNoteDescriptionChange} noteTitle={noteTitle} noteDescription={noteDescription} notes={notes} />
+        <AddEditNotes onClose={() => setOpenAddModal({ isShown: false, type: "add", data: null })} onTitleChange={handleNoteTitleChange} onDescriptionChange={handleNoteDescriptionChange} noteTitle={noteTitle} noteDescription={noteDescription} notes={notes} onAddNote={addNewNote} />
     </Modal>
     </>
   )
