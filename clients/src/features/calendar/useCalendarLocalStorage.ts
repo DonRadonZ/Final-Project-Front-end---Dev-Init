@@ -9,7 +9,7 @@ export default function useCalendarLocalStorage(initialState, key) {
     });
 
     useEffect(function () {
-        localStorage.setItem('todo', JSON.stringify(value));
+        localStorage.setItem('calendar', JSON.stringify(value));
     }, [value, key]);
     return [value, setValue];
 }

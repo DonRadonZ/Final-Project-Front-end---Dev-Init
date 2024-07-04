@@ -9,7 +9,7 @@ export default function useNoteLocalStorage(initialState, key) {
     });
 
     useEffect(function () {
-        localStorage.setItem('note', JSON.stringify(value));
+        localStorage.setItem('notes', JSON.stringify(value));
     }, [value, key]);
     return [value, setValue];
 }
