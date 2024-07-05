@@ -7,9 +7,8 @@ import TodoList from "../components/ui/TodoList";
 
 export default function Todo() {
   const [todos, setTodos] = useTodoLocalStorage([], 'todos')
-  const [todoTitle, setTodoTitle] = useState("");
-  const [todoDetail, setTodoDetail] = useState("");
-
+  
+  const [editingTodo, setEditingTodo] = useState(null);
   const [searchTodo, setSearchTodo] = useState('');
 
   function handleSearch(e){
@@ -22,34 +21,12 @@ export default function Todo() {
     data: null,
   });
 
-  function handleTodoTitleChange(e) {
-    setTodoTitle(e.target.value)
-  }
-
-  function handleTodoDetailsChange(e) {
-    setTodoDetail(e.target.value)
-  }
+  
 
 
-  function formatDate(date){
-    return date.toDateString() + " " + date.toTimeString().split(" ")[0];
-  }
+  
 
-  function addTodo() {
-    if (todoTitle && todoDetail) {
-      const todoDate = new Date();
-      const formattedDate =  formatDate(todoDate);
-      const updatedTodo = [...todos, { title: todoTitle, detail: todoDetail, date: formattedDate }];
-      setTodos(updatedTodo);
-      setTodoTitle('');
-      setTodoDetail('');
-      setOpenAddModal({
-        isShown: false,
-        type: "add",
-        data: null,
-      })
-    }
-  }
+  
 
 
   function editTodo(updatedTodo) {
@@ -59,8 +36,10 @@ export default function Todo() {
     console.log("test")
   }
 
+  const filterTodo = todos.filter((todo) => todo.title.toLowerCase().includes(searchTodo.toLowerCase()))
+
   function deleteTodo(index){
-    const newTodos = todos.filter((_: any,todo: any) => todo !== index)
+    const newTodos = todos.filter((_: any, todo: any) => todo !== index);
     setTodos(newTodos);
   }
 
@@ -73,7 +52,7 @@ export default function Todo() {
       <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>Add Todo</button>
       </div>
       <TodoList 
-      onEdit={editTodo} todos={todos} onDelete={deleteTodo} />
+        onEdit={editTodo} todos={filterTodo} onDelete={deleteTodo} editingTodo={editingTodo} setEditingTodo={setEditingTodo}  />
       
 
       <Modal
@@ -89,11 +68,15 @@ export default function Todo() {
       >
         <AddEditTodo
           onClose={() => setOpenAddModal({ isShown: false, type: "add", data: null })}
-          onTitleChange={handleTodoTitleChange}
-          onDetailChange={handleTodoDetailsChange}
-          todoTitle={todoTitle}
-          todoDetail={todoDetail}
-          onAddTodo={addTodo}
+          todoData={openAddModal.data}
+          todos={todos}
+          setTodos={setTodos}
+          setOpenAddModal={setOpenAddModal}
+          // onTitleChange={handleTodoTitleChange}
+          // onDetailChange={handleTodoDetailsChange}
+          // todoTitle={todoTitle}
+          // todoDetail={todoDetail}
+          // onAddTodo={addTodo}
         />
       </Modal>
     </>
