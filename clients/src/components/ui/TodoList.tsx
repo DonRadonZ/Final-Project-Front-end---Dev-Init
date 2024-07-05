@@ -1,7 +1,7 @@
 import TodoCard from "./TodoCard";
 
 
-export default function TodoList({onEdit, onOpen, onDelete ,todos}: any) {
+export default function TodoList({onEdit, onOpen, onDelete ,todos, handleEdit}: any) {
   return (
     <div className="mt-20 grid gap-4 grid-cols-5">
     {todos.map((todo, index) => (
@@ -10,7 +10,7 @@ export default function TodoList({onEdit, onOpen, onDelete ,todos}: any) {
         title={todo.title}
         detail={todo.detail}
         date={todo.date}
-        onEdit={() => onEdit(index)}
+        onEdit={() => handleEdit(todo)}
         onDelete={() => onDelete(index)}
       />
     ))}
