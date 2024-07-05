@@ -11,8 +11,14 @@ export default function TodoCard({title,detail,date, onEdit, onDelete, index}: a
       <h2 className='font-bold text-2xl'>{title}</h2>
       </div>
       <div className="flex">
-        <HiPencilSquare className='hover:text-blue-600' onClick={onEdit}/>
-        <HiTrash className='hover:text-red-600' onClick={onDelete} />
+          <HiPencilSquare
+            className='hover:text-blue-600'
+            onClick={onEdit}
+          />
+          <HiTrash
+            className='hover:text-red-600'
+            onClick={onDelete}
+          />
         </div>
       </div>
       <p className='mt-2'>{detail}</p>
