@@ -1,11 +1,12 @@
 import TodoCard from "./TodoCard";
 
 
-export default function TodoList({editTodo ,todos}: any) {
+export default function TodoList({onEdit, onDelete ,todos}: any) {
   return (
-    todos.map((todo, index) => (
-      <TodoCard key={index} title={todo.title} detail={todo.detail} date={todo.date} onEdit={editTodo} />
-    ))
-    
+    <div className="mt-20 grid gap-4 grid-cols-5">
+    {todos.map((todo, index) => (
+      <TodoCard key={index} title={todo.title} detail={todo.detail} date={todo.date} onEdit={() => onEdit(index)} onDelete={() => onDelete(index)}/>
+    ))}
+    </div>
   )
 }
