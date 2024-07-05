@@ -24,6 +24,8 @@ export default function Notes() {
     setNoteDescription(e.target.value);
   }
 
+  
+
   function formatDate(date){
     return date.toDateString() + " " + date.toTimeString().split(" ")[0];
   }
@@ -46,11 +48,10 @@ export default function Notes() {
     }
   }
 
-  
-
-  
-
-  
+  function onDeleteNote(index) {
+    const newNotes = notes.filter((_: any,note: any) => note !== index)
+    setNotes(newNotes);
+  }
 
   return (
     <>
@@ -59,7 +60,7 @@ export default function Notes() {
         
         <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>New Note</button>
       </div>
-    <NoteList notes={notes}/>
+    <NoteList notes={notes} onDelete={onDeleteNote}/>
     
     <Modal
     isOpen={openAddModal.isShown}
