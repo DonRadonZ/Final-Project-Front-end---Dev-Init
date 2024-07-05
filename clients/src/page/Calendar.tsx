@@ -42,10 +42,6 @@ export default function CalendarPage() {
     }
   }
 
-
-
-  
-
   return (
      
     <>
@@ -74,7 +70,14 @@ export default function CalendarPage() {
     contentLabel=""
     className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
     >
-      <AddEvent eventTitle={eventTitle} eventDate={eventDate} onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})} onDate={handleEventDate} onTitle={handleEventTitle} onEvent={newEvent}/>
+      <AddEvent 
+      eventTitle={eventTitle} 
+      eventDate={eventDate} 
+      onClose={() => setOpenAddModal({isShown: false, type:"add", data: null})} 
+      onDate={handleEventDate} 
+      onTitle={handleEventTitle} 
+      onEvent={newEvent}
+      />
     </Modal>
     </>
     
