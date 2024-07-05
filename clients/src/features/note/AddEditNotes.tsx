@@ -3,8 +3,7 @@ import { HiXCircle } from "react-icons/hi2";
 
 
 export default function AddEditNotes({onClose, noteTitle, noteDescription, onTitleChange, onDescriptionChange, onAddNote}: any) {
-  
-
+   
   // function editNote(){
     
   // }
