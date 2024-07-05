@@ -21,13 +21,6 @@ export default function Todo() {
     data: null,
   });
 
-  
-
-
-  
-
-  
-
 
   function editTodo(updatedTodo) {
     const newTodos = todos.map((todo) => todo.id === updatedTodo.id ? updatedTodo : todo);
@@ -36,7 +29,15 @@ export default function Todo() {
     console.log("test")
   }
 
-  const filterTodo = todos.filter((todo) => todo.title.toLowerCase().includes(searchTodo.toLowerCase()))
+  // const filterTodo = todos.filter((todo) => todo.title.toLowerCase().includes(searchTodo.toLowerCase()));
+
+  function handleEdit(todoDetails: any) {
+    setOpenAddModal({
+      isShown: true,
+      data: todoDetails,
+      type: "edit",
+    })
+  }
 
   function deleteTodo(index){
     const newTodos = todos.filter((_: any, todo: any) => todo !== index);
@@ -49,10 +50,10 @@ export default function Todo() {
       <div className="flex items-center justify-between">
       <h2 className="font-bold text-6xl">Todo List</h2>
       <input type="text" placeholder='search...' className='bg-white w-[800px] py-6 text-left pl-7' value={searchTodo} onChange={handleSearch}/>
-      <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>Add Todo</button>
+      <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"edit", data: null})}}>Add Todo</button>
       </div>
       <TodoList 
-        onEdit={editTodo} todos={filterTodo} onDelete={deleteTodo} editingTodo={editingTodo} setEditingTodo={setEditingTodo}  />
+        onEdit={editTodo} todos={todos} onDelete={deleteTodo} editingTodo={editingTodo} setEditingTodo={setEditingTodo} handleEdit={handleEdit} />
       
 
       <Modal
