@@ -10,6 +10,18 @@ export default function Todo() {
   const [todoTitle, setTodoTitle] = useState("");
   const [todoDetail, setTodoDetail] = useState("");
 
+  const [searchTodo, setSearchTodo] = useState('');
+
+  function handleSearch(e){
+    setSearchTodo(e.target.value);
+  }
+
+  const [openAddModal, setOpenAddModal] = useState({
+    isShown: false,
+    type: "add",
+    data: null,
+  });
+
   function handleTodoTitleChange(e) {
     setTodoTitle(e.target.value)
   }
@@ -17,6 +29,7 @@ export default function Todo() {
   function handleTodoDetailsChange(e) {
     setTodoDetail(e.target.value)
   }
+
 
   function formatDate(date){
     return date.toDateString() + " " + date.toTimeString().split(" ")[0];
@@ -30,29 +43,37 @@ export default function Todo() {
       setTodos(updatedTodo);
       setTodoTitle('');
       setTodoDetail('');
+      setOpenAddModal({
+        isShown: false,
+        type: "add",
+        data: null,
+      })
     }
   }
+
 
   function editTodo(updatedTodo) {
     const newTodos = todos.map((todo) => todo.id === updatedTodo.id ? updatedTodo : todo);
     setTodos(newTodos);
+
+    console.log("test")
   }
 
+  function deleteTodo(index){
+    const newTodos = todos.filter((_: any,todo: any) => todo !== index)
+    setTodos(newTodos);
+  }
 
-  const [openAddModal, setOpenAddModal] = useState({
-    isShown: false,
-    type: "add",
-    data: null,
-  });
 
   return (
     <>
       <div className="flex items-center justify-between">
       <h2 className="font-bold text-6xl">Todo List</h2>
-      <input type="text" placeholder='search...' className='bg-white w-[800px] py-6 text-left pl-7' />
+      <input type="text" placeholder='search...' className='bg-white w-[800px] py-6 text-left pl-7' value={searchTodo} onChange={handleSearch}/>
       <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>Add Todo</button>
       </div>
-      <TodoList onEdit={editTodo} todos={todos} />
+      <TodoList 
+      onEdit={editTodo} todos={todos} onDelete={deleteTodo} />
       
 
       <Modal
