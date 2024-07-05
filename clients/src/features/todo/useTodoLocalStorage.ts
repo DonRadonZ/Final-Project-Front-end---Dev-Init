@@ -9,7 +9,7 @@ export default function useTodoLocalStorage(initialState, key) {
     });
 
     useEffect(function () {
-        localStorage.setItem('todo', JSON.stringify(value));
+        localStorage.setItem('todos', JSON.stringify(value));
     }, [value, key]);
     return [value, setValue];
 }
