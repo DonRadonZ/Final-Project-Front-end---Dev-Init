@@ -9,7 +9,7 @@ export default function AddEditTodo({
   // onDetailChange,
   todos,
   type,
-  todoDetails,
+  // todoDetails,
   setTodos,
   setOpenAddModal,
   todoData
@@ -31,6 +31,22 @@ export default function AddEditTodo({
   }
 
   function addTodo() {
+    if (todoTitle && todoDetail) {
+      const todoDate = new Date();
+      const formattedDate =  formatDate(todoDate);
+      const updatedTodo = [...todos, { title: todoTitle, detail: todoDetail, date: formattedDate }];
+      setTodos(updatedTodo);
+      setTodoTitle('');
+      setTodoDetail('');
+      setOpenAddModal({
+        isShown: false,
+        type: "add",
+        data: null,
+      })
+    }
+  }
+
+  function editTodo() {
     if (todoTitle && todoDetail) {
       const todoDate = new Date();
       const formattedDate =  formatDate(todoDate);
@@ -69,7 +85,7 @@ export default function AddEditTodo({
       <label className="text-xs text-slate-400">DETAILS</label>
         <textarea
           type="text"
-          value={todoDetails}
+          value={todoDetail}
           onChange={handleTodoDetailsChange}
         className="text-sm text-slate-900 outline-none bg-gray-200 p-2 rounded resize-none"
         placeholder="Write something here..."
