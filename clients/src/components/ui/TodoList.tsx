@@ -1,10 +1,10 @@
 import TodoCard from "./TodoCard";
 
 
-export default function TodoList({onEdit, onOpen, onDelete ,todos, handleEdit}: any) {
+export default function TodoList({onDelete ,todos, handleEdit}: any) {
   return (
     <div className="mt-20 grid gap-4 grid-cols-5">
-    {todos.map((todo, index) => (
+    {todos.map((todo: any, index: any) => (
       <TodoCard
         key={index}
         title={todo.title}
