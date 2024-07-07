@@ -3,6 +3,7 @@ import NoteList from "../components/ui/NoteList";
 import AddEditNotes from "../features/note/AddEditNotes";
 import Modal from "react-modal";
 import useNoteLocalStorage from "../features/note/useNoteLocalStorage";
+import Swal from "sweetalert2";
 
 
 export default function Notes() {
@@ -49,8 +50,27 @@ export default function Notes() {
   }
 
   function onDeleteNote(index) {
-    const newNotes = notes.filter((_: any,note: any) => note !== index)
-    setNotes(newNotes);
+    Swal.fire({
+      title: "Delete Note",
+      text: "Are you sure do you wnat to delete this note",
+      icon: "warning",
+      confirmButtonText:"Sure",
+      confirmButtonColor: "Red",
+      showCancelButton: true,
+      cancelButtonText:"Cancel",
+      cancelButtonColor:"Gray"
+    }).then((result) => {
+      if(result.isConfirmed){
+        const newTodos = notes.filter((_: any, note: any) => note !== index);
+      setNotes(newTodos);
+      Swal.fire({
+        title: "Delete Successful",
+        text: "Your task delete successful",
+        icon: "success"
+      })
+      }
+    })
+    
   }
 
   return (
