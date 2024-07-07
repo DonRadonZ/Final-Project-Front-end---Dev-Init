@@ -12,9 +12,9 @@ export default function App() {
 
   return (
     <div>
-    <div className="flex justify-between flex-col md:flex-row md:gap-5 xl:gap-20 mx-6">
+    <div className="flex justify-between flex-col sm:flex-row md:flex-row md:gap-5 xl:gap-20 mx-6  ">
       
-    <div className="bg-white w-[84rem] shadow rounded-lg p-10">
+    <div className="bg-white w-[84rem] shadow rounded-lg p-10 ">
     <FullCalendar
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
@@ -24,7 +24,7 @@ export default function App() {
         // eventContent={renderEventContent}
       />
     </div>
-      <div className="w-[500px]">
+      <div className="w-[500px] ">
       <div className="flex justify-between gap-7">
       <div className="text-center bg-white w-full  h-48 rounded-md"><h1 className="text-xl mb-7 ">Progress</h1>
       <div className="radial-progress  text-orange-500" style={{ "--value": "70", "--size": "7rem" }}>
