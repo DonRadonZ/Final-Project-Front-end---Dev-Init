@@ -16,7 +16,7 @@ export default {
         huge: ['120rem',{lineHeight: '1'}],
       },
       height: {
-        screen: 'h-full'
+        screen: '100dvh'
       }
     },
   },
