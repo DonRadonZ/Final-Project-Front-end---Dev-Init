@@ -3,38 +3,38 @@
 import { useState } from 'react';
 import { HiXCircle } from 'react-icons/hi2'
 
+
+
 export default function AddEditTodo({
   onClose,
-  // onTitleChange,
-  // onDetailChange,
   todos,
   type,
-  // todoDetails,
   setTodos,
   setOpenAddModal,
   todoData
 }: any) {
+
+  const [error, setError] = useState(null)
   
   const [todoTitle, setTodoTitle] = useState(todoData?.title ||"");
   const [todoDetail, setTodoDetail] = useState(todoData?.detail || "");
 
-  function handleTodoTitleChange(e) {
+  function handleTodoTitleChange(e: any) {
     setTodoTitle(e.target.value)
   }
 
-  function handleTodoDetailsChange(e) {
+  function handleTodoDetailsChange(e: any) {
     setTodoDetail(e.target.value)
   }
 
-  function formatDate(date){
+  function formatDate(date: any){
     return date.toDateString() + " " + date.toTimeString().split(" ")[0];
   }
 
-  function addTodo() {
-    if (todoTitle && todoDetail) {
-      const todoDate = new Date();
+  function addNewTodo(){
+    const todoDate = new Date();
       const formattedDate =  formatDate(todoDate);
-      const updatedTodo = [...todos, { title: todoTitle, detail: todoDetail, date: formattedDate }];
+      const updatedTodo = [...todos, {title: todoTitle, detail: todoDetail, date: formattedDate }];
       setTodos(updatedTodo);
       setTodoTitle('');
       setTodoDetail('');
@@ -43,24 +43,42 @@ export default function AddEditTodo({
         type: "add",
         data: null,
       })
-    }
+      
   }
 
   function editTodo() {
-    if (todoTitle && todoDetail) {
-      const todoDate = new Date();
-      const formattedDate =  formatDate(todoDate);
-      const updatedTodo = [...todos, { title: todoTitle, detail: todoDetail, date: formattedDate }];
-      setTodos(updatedTodo);
-      setTodoTitle('');
-      setTodoDetail('');
-      setOpenAddModal({
-        isShown: false,
-        type: "add",
-        data: null,
-      })
+    const todoInfo = todoData
+    const todoDate = new Date();
+    const formattedDate =  formatDate(todoDate);
+    const updatedTodo = todos.map((todo: any) => todoData === todo ? {title: todoTitle, detail: todoDetail, date: formattedDate }: todo)
+    setTodos(updatedTodo);
+    setTodoTitle('');
+    setTodoDetail('');
+    onClose()
+  }
+
+  function addTodo() {
+    // if (todoTitle && todoDetail) {
+      if(!todoTitle){
+        setError("Please enter the title");
+        return;
+      }
+  
+      if(!todoDetail){
+        setError("Please enter the content");
+        return;
+      }
+      setError("")
+      
+    
+    if(type === "edit"){
+      editTodo();
+    }else {
+      addNewTodo();
     }
   }
+
+  
 
   return (
     <div className="relative">
@@ -92,7 +110,7 @@ export default function AddEditTodo({
         rows={10}
         />
       </div>
-
+      {error && <p className='text-red-500 text-xs pt-4'>{error}</p> }
       <button className="bg-blue-500 w-full font-medium mt-5 p-3" onClick={addTodo}>
         {type === "edit" ? "UPDATE": "ADD"}
       </button>
