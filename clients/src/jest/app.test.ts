@@ -10,4 +10,8 @@ test('renders calendar, note and todo list',() =>{
     render(
         <BrowserRouter>
     )
+
+    expect(screen.getByText('Add event')).toBeInTheDocument();
+
+    
 })
