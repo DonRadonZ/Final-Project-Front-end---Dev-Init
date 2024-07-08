@@ -1,6 +1,6 @@
 
 
-export default function UncheckedTodo({todo, index}) {
+export default function UncheckedTodo({todo, index}:{todo: any, index: any}) {
   return (
     <div key={index} className="flex justify-between mt-2 dark:text-white">
         <label>
