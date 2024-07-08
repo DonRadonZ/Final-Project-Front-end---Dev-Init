@@ -12,7 +12,7 @@ export default function Todo() {
   // const [editingTodo, setEditingTodo] = useState(null);
   const [searchTodo, setSearchTodo] = useState('');
 
-  function handleSearch(e){
+  function handleSearch(e: any){
     setSearchTodo(e.target.value);
   }
 

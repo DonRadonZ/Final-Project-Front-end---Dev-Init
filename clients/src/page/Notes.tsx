@@ -17,17 +17,17 @@ export default function Notes() {
     data: null,
   });
 
-  function handleNoteTitleChange(e) {
+  function handleNoteTitleChange(e: any) {
     setNoteTitle(e.target.value);
   }
 
-  function handleNoteDescriptionChange(e) { 
+  function handleNoteDescriptionChange(e: any) { 
     setNoteDescription(e.target.value);
   }
 
   
 
-  function formatDate(date){
+  function formatDate(date: any){
     return date.toDateString() + " " + date.toTimeString().split(" ")[0];
   }
   
@@ -49,7 +49,7 @@ export default function Notes() {
     }
   }
 
-  function onDeleteNote(index) {
+  function onDeleteNote(index: any) {
     Swal.fire({
       title: "Delete Note",
       text: "Are you sure do you wnat to delete this note",
