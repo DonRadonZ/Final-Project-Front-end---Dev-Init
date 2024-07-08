@@ -23,14 +23,8 @@ export default function Todo() {
   });
 
 
-  // function editTodo(updatedTodo) {
-  //   const newTodos = todos.map((todo) => todo.id === updatedTodo.id ? updatedTodo : todo);
-  //   setTodos(newTodos);
 
-  //   console.log("test")
-  // }
-
-  const filterTodo = todos.filter((todo) => todo.title.toLowerCase().includes(searchTodo.toLowerCase()));
+  const filterTodo = todos.filter((todo: {title: string}) => todo.title.toLowerCase().includes(searchTodo.toLowerCase()));
 
   function handleEdit(todoDetails: any) {
     setOpenAddModal({
@@ -40,7 +34,7 @@ export default function Todo() {
     })
   }
 
-  function deleteTodo(index){
+  function deleteTodo(index: any){
     Swal.fire({
       title: "Delete Task",
       text: "Are you sure do you want to delete this task",
@@ -65,11 +59,12 @@ export default function Todo() {
 
   return (
     <>
-      <div className="flex items-center justify-between">
-      <h2 className="font-bold text-6xl">Todo List</h2>
-      <input type="text" placeholder='search...' className='bg-white w-[800px] py-6 text-left pl-7' value={searchTodo} onChange={handleSearch}/>
-      <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>Add Todo</button>
+      <div className="flex items-center justify-between sm:flex-col md:flex-row gap-2">
+      <h2 className="font-bold text-3xl lg:text-6xl dark:text-neutral-50">Todo List</h2>
+      <input type="text" placeholder='search...' className='bg-neutral-300 dark:bg-slate-700 w-[800px] py-6 text-left pl-7 sm:mt-5 sm:w-[600px] rounded dark:text-neutral-100' value={searchTodo} onChange={handleSearch}/>
+      <button className="bg-emerald-400 hover:bg-green-400 py-3 px-5 rounded-md sm:mt-5" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>Add Todo</button>
       </div>
+      <div>
       <TodoList 
         // onEdit={editTodo} 
         todos={filterTodo} 
@@ -78,7 +73,7 @@ export default function Todo() {
         // setEditingTodo={setEditingTodo}
         handleEdit={handleEdit} />
       
-
+      </div>
       <Modal
       isOpen={openAddModal.isShown}
       onRequestClose={() => {}}
@@ -88,7 +83,7 @@ export default function Todo() {
         },
       }}
       contentLabel=""
-      className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
+      className="w-[75%] max-h-3/4 bg-white rounded-md mx-auto mt-[12.5%] p-5 lg:w-[40%] dark:bg-black"
       >
         <AddEditTodo
           type={openAddModal.type}
@@ -97,11 +92,6 @@ export default function Todo() {
           todos={todos}
           setTodos={setTodos}
           setOpenAddModal={setOpenAddModal}
-          // onTitleChange={handleTodoTitleChange}
-          // onDetailChange={handleTodoDetailsChange}
-          // todoTitle={todoTitle}
-          // todoDetail={todoDetail}
-          // onAddTodo={addTodo}
         />
       </Modal>
     </>

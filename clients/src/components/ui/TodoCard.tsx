@@ -4,7 +4,7 @@ import { HiPencilSquare, HiTrash } from "react-icons/hi2";
 
 export default function TodoCard({title,detail,date, onEdit, onDelete, index}: any) {
   return (
-    <div className="bg-orange-400 rounded-lg p-4 min-h-44 flex flex-col justify-between" key={index}>
+    <div className="bg-cyan-100 rounded-lg p-4 min-h-44 flex flex-col justify-between shadow dark:bg-cyan-700 dark:text-white" key={index}>
       <div className="flex items-center justify-between">
       <div className="flex">
       <input type="checkbox" className="items-center mr-2" />
@@ -12,11 +12,11 @@ export default function TodoCard({title,detail,date, onEdit, onDelete, index}: a
       </div>
       <div className="flex">
           <HiPencilSquare
-            className='hover:text-blue-600'
+            className='hover:text-purple-600'
             onClick={onEdit}
           />
           <HiTrash
-            className='hover:text-red-600'
+            className='hover:text-red-500'
             onClick={onDelete}
           />
         </div>

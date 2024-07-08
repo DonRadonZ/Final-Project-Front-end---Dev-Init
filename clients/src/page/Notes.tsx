@@ -74,11 +74,11 @@ export default function Notes() {
   }
 
   return (
-    <>
+    <div>
       <div className='flex justify-between items-center'>
-        <h1 className='font-bold text-6xl'>Note List</h1>
+        <h1 className='font-bold text-6xl dark:text-neutral-50'>Note List</h1>
         
-        <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>New Note</button>
+        <button className="bg-emerald-400 hover:bg-green-400 py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>New Note</button>
       </div>
     <NoteList notes={notes} onDelete={onDeleteNote}/>
     
@@ -91,7 +91,7 @@ export default function Notes() {
       },
     }}
     contentLabel=""
-    className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
+    className="w-[75%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 lg:w-[40%] dark:bg-black"
     >
         <AddEditNotes
           type={openAddModal.type}
@@ -105,6 +105,6 @@ export default function Notes() {
           onAddNote={addNewNote}
         />
     </Modal>
-    </>
+    </div>
   )
 }

@@ -45,18 +45,19 @@ export default function CalendarPage() {
   return (
      
     <>
-      <div className='flex justify-between items-center'>
-        <h1 className='font-bold text-4xl mb-4'>Calendar</h1>
+      <div className='flex justify-between items-center '>
+        <h1 className='font-bold text-4xl mb-4 md:text-6xl dark:text-neutral-50'>Calendar</h1>
         
-        <button className="bg-white py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>New Event</button>
+        <button className="bg-emerald-400 hover:bg-green-400 py-3 px-5 rounded-md" onClick={() => {setOpenAddModal({isShown: true, type:"add", data: null})}}>New Event</button>
       </div>
-      <div className="w-full mt-5 rounded-lg p-10 bg-white">
+      <div className="w-full mt-5 rounded-lg p-10 bg-white relative z-0 dark:bg-black dark:text-white">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView='dayGridMonth'
         height={665}
         events={events}
         // eventContent={renderEventContent}
+
       />
       </div>
       <Modal
@@ -64,11 +65,11 @@ export default function CalendarPage() {
     onRequestClose={() => {}}
     style={{
       overlay: {
-        backgroundColor: "rgba(0,0,0,0.2)",
+        backgroundColor: "rgba(0,0,0,0.5)",
       },
     }}
     contentLabel=""
-    className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 "
+    className="w-[75%] max-h-3/4 bg-white rounded-md mx-auto mt-[10%] p-10 z-10 lg:w-[40%] dark:bg-black"
     >
       <AddEvent 
       eventTitle={eventTitle} 

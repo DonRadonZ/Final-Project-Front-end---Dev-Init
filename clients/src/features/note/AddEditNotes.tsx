@@ -14,7 +14,7 @@ export default function AddEditNotes({onClose, noteTitle, noteDescription, onTit
     className="w-10  absolute items-center justify-center  -top-3 -right-3 "
     onClick={onClose}
     >
-        <HiXCircle className="text-4xl text-black z-10 hover:text-slate-500"/>
+        <HiXCircle className="text-4xl text-black z-10 hover:text-slate-500 dark:text-white"/>
     </button>
       <div className="flex flex-col gap-2">
         <label className="text-xs text-slate-400">TITLE</label>

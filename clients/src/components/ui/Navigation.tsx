@@ -1,10 +1,14 @@
+import { HiMoon } from "react-icons/hi2";
+import DarkModeToggle from "./DarkModeToggle";
 
 
 
 export default function Navigation() {
   return (
-    <nav className="z-10 text-xl">
-    <ul className="flex gap-8 items-center">
+    <ul className=" gap-8 items-center hidden md:flex text-xl">
+        <li>
+            <DarkModeToggle/>
+        </li>
         <li>
             <a href="/">Dashboard</a>
         </li>
@@ -18,6 +22,6 @@ export default function Navigation() {
             <a href="/notes">Note</a>
         </li>
     </ul>
-    </nav>
+    
   )
 }

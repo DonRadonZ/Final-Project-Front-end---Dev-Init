@@ -9,6 +9,7 @@ import Todo from './page/Todo.tsx';
 import Notes from './page/Notes.tsx';
 
 import CalendarPage from './page/Calendar.tsx';
+import { DarkModeProvider } from './context/DarkmodeContext.tsx';
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
         path: '/notes',
         element: <Notes/>,
       },  
-    ]
+    ],
   },
 ]);
 
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <DarkModeProvider>
     <RouterProvider router={router} />
+    </DarkModeProvider>
   </React.StrictMode>,
 )

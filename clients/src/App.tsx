@@ -12,29 +12,31 @@ export default function App() {
 
   return (
     <div>
-    <div className="flex justify-between flex-col sm:flex-row md:flex-row md:gap-5 xl:gap-20 mx-6  ">
+    <div className="flex justify-between flex-col mx-6 sm:flex-col md:flex-col lg:flex-row md:gap-5 xl:gap-20">
       
-    <div className="bg-white w-[84rem] shadow rounded-lg p-10 ">
+    <div className="bg-white w-[100%] max-w-[100%] shadow rounded-lg p-10 mb-6 dark:bg-black dark:text-white">
     <FullCalendar
         plugins={[dayGridPlugin]}
         initialView='dayGridMonth'
+
         // weekends={false}
         height={720}
         events={events}
         // eventContent={renderEventContent}
       />
     </div>
-      <div className="w-[500px] ">
+      <div className="
+       w-[450px]  md:w-[650px] lg:w-[750px]">
       <div className="flex justify-between gap-7">
-      <div className="text-center bg-white w-full  h-48 rounded-md"><h1 className="text-xl mb-7 ">Progress</h1>
+      <div className="text-center bg-white dark:bg-black w-full  h-48 rounded-md shadow"><h1 className="text-xl mb-7  dark:text-white">Progress</h1>
       <div className="radial-progress  text-orange-500" style={{ "--value": "70", "--size": "7rem" }}>
         70%</div></div>
       <div className="text-center items-center bg-white
-      w-full h-48 rounded-md"><h1 className="text-xl">Reward</h1></div>
+      w-full h-48 rounded-md shadow dark:bg-black dark:text-white"><h1 className="text-xl ">Reward</h1></div>
       </div>
-      <div className="px-4 py-4 bg-white w-full mt-8 h-[600px] rounded-md"><h1 className="text-xl ">Today Activity</h1><hr className="mt-5"></hr>
-      {todos.map((todo, index) => (
-        <UncheckedTodo key={index} todo={todo}/>
+      <div className="px-4 py-4 bg-white w-full mt-8 h-[575px] rounded-md shadow dark:bg-black"><h1 className="text-xl dark:text-white">Today Activity</h1><hr className="mt-5"></hr>
+      {todos.map((todo: any, index: any) => (
+        <UncheckedTodo key={index} todo={todo} index={index}/>
         ))}
       </div>
       </div>

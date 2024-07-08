@@ -47,7 +47,6 @@ export default function AddEditTodo({
   }
 
   function editTodo() {
-    const todoInfo = todoData
     const todoDate = new Date();
     const formattedDate =  formatDate(todoDate);
     const updatedTodo = todos.map((todo: any) => todoData === todo ? {title: todoTitle, detail: todoDetail, date: formattedDate }: todo)
@@ -81,14 +80,14 @@ export default function AddEditTodo({
   
 
   return (
-    <div className="relative">
+    <div className="relative ">
     <button
     className="w-10  absolute items-center justify-center  -top-3 -right-3 "
     onClick={onClose}
     >
-        <HiXCircle className="text-4xl text-black z-10 hover:text-slate-500"/>
+        <HiXCircle className="text-4xl text-black z-10 hover:text-slate-500 dark:text-stone-100"/>
     </button>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 ">
         <label className="text-xs text-slate-400">TITLE</label>
         <input
           type="text"
