@@ -7,20 +7,21 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      sans: 'Roboto Mono, monospace',
-    },
-
     extend: {
+      height: {
+        screen: '100dvh',
+      },
       fontSize: {
         huge: ['120rem',{lineHeight: '1'}],
       },
-      height: {
-        screen: '100dvh'
-      }
+      
+    },
+    fontFamily: {
+      sans: 'Roboto Mono, monospace',
     },
   },
   plugins: [
     daisyui,
   ],
+  darkMode: "class"
 }
