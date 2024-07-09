@@ -5,7 +5,7 @@
 
 <div align="center">
 
-<a href="https://clock-note.vercel.app/">View Demo</a>
+<a href="https://clock-note.netlify.app/">View Demo</a>
 •
 <a href="https://github.com/DonRadonZ/E-commerce-Dashboard/issues">Report Bug</a>
 •
