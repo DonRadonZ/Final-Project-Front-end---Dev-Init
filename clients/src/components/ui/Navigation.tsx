@@ -1,4 +1,3 @@
-import { HiMoon } from "react-icons/hi2";
 import DarkModeToggle from "./DarkModeToggle";
 
 

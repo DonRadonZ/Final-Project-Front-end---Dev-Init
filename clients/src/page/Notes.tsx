@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import NoteList from "../components/ui/NoteList";
 import AddEditNotes from "../features/note/AddEditNotes";
 import Modal from "react-modal";
@@ -6,18 +6,23 @@ import useNoteLocalStorage from "../features/note/useNoteLocalStorage";
 import Swal from "sweetalert2";
 
 
+
 export default function Notes() {
   const [notes, setNotes] = useNoteLocalStorage([],'notes');
   const [noteTitle, setNoteTitle] = useState("");
   const [noteDescription, setNoteDescription] = useState("");
 
-  const [openAddModal, setOpenAddModal] = useState({
+  const [openAddModal, setOpenAddModal] = useState<{
+    isShown: boolean;
+    type: any;
+    data: any;
+  }>({
     isShown: false,
     type: "add",
     data: null,
   });
 
-  function handleNoteTitleChange(e: any) {
+  function handleNoteTitleChange(e: ChangeEvent<HTMLInputElement>) {
     setNoteTitle(e.target.value);
   }
 

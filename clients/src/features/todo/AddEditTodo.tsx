@@ -1,9 +1,21 @@
-
-
 import { useState } from 'react';
 import { HiXCircle } from 'react-icons/hi2'
 
+interface Todo {
+  title: string;
+  detail: string;
+  date: string;
+  isChecked: boolean;
+}
 
+interface AddEditTodoProps {
+  onClose: () => void;
+  todos: Todo[];
+  type: string;
+  setTodos: (todos: Todo[]) => void;
+  setOpenAddModal: (modal: { isShown: boolean; type: string; data: any }) => void;
+  todoData: Todo | null;
+}
 
 export default function AddEditTodo({
   onClose,
@@ -12,9 +24,9 @@ export default function AddEditTodo({
   setTodos,
   setOpenAddModal,
   todoData
-}: any) {
+}: AddEditTodoProps) {
 
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
   
   const [todoTitle, setTodoTitle] = useState(todoData?.title ||"");
   const [todoDetail, setTodoDetail] = useState(todoData?.detail || "");
@@ -49,7 +61,7 @@ export default function AddEditTodo({
   function editTodo() {
     const todoDate = new Date();
     const formattedDate =  formatDate(todoDate);
-    const updatedTodo = todos.map((todo: any) => todoData === todo ? {title: todoTitle, detail: todoDetail, date: formattedDate }: todo)
+    const updatedTodo = todos.map((todo) => todoData === todo ? {title: todoTitle, detail: todoDetail, date: formattedDate, isChecked: false }: todo)
     setTodos(updatedTodo);
     setTodoTitle('');
     setTodoDetail('');

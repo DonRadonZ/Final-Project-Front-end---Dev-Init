@@ -1,6 +1,17 @@
+// import { MouseEvent } from "react";
 import moment from "moment";
 import { HiPencilSquare, HiTrash } from "react-icons/hi2";
 
+// interface TodoCardProps {
+//   key: any;
+//   title: string;
+//   detail: string;
+//   date: string;
+//   onEdit: (event: MouseEvent<SVGElement>) => void;
+//   onDelete: (event: MouseEvent<SVGElement>) => void;
+//   index: any;
+//   isChecked: any;
+// }
 
 export default function TodoCard({title,detail,date, onEdit, onDelete, index, isChecked}: any) {
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-export default function useNoteLocalStorage(initialState, key) {
+export default function useNoteLocalStorage(initialState: any[], key: string) {
     const [value, setValue] = useState(function () {
         const storedValue = localStorage.getItem(key);
         if (storedValue === null) return [];

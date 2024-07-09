@@ -1,12 +1,21 @@
-
+import { ChangeEvent, MouseEvent } from "react";
 import { HiXCircle } from "react-icons/hi2";
 
+interface AddEditNotePorps {
+  onClose: () => void;
+  type: string;
+  noteData: any;
+  notes: any
+  noteTitle: string;
+  noteDescription: string;
+  onTitleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onDescriptionChange:  (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onAddNote: (event: MouseEvent<HTMLButtonElement>) => void;
+}
 
-export default function AddEditNotes({onClose, noteTitle, noteDescription, onTitleChange, onDescriptionChange, onAddNote}: any) {
+export default function AddEditNotes({onClose, noteTitle, noteDescription, onTitleChange, onDescriptionChange, onAddNote}: AddEditNotePorps) {
    
-  // function editNote(){
-    
-  // }
+
 
   return (
     <div className="relative">
@@ -31,7 +40,6 @@ export default function AddEditNotes({onClose, noteTitle, noteDescription, onTit
       <div className="flex flex-col gap-2 mt-4">
       <label className="text-xs text-slate-400">Description</label>
         <textarea
-        type="text"
           id="description"
           value={noteDescription}
           onChange={onDescriptionChange}

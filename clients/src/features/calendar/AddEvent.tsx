@@ -1,10 +1,18 @@
-
-
 import { HiXCircle } from "react-icons/hi2";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { MouseEventHandler } from "react";
 
-export default function AddEvent({onClose, eventTitle, eventDate, onTitle, onDate, onEvent}) {
+interface AddEventProps {
+  onClose: MouseEventHandler<HTMLButtonElement>;
+  eventTitle: string;
+  eventDate: string;
+  onTitle: any;
+  onDate: any;
+  onEvent: any;
+}
+
+export default function AddEvent({onClose, eventTitle, eventDate, onTitle, onDate, onEvent}: AddEventProps) {
   return (
     <div className="relative">
     <button
