@@ -7,7 +7,7 @@ import UncheckedTodo from "./features/todo/UncheckedTodo";
 
 export default function App() {
   const [todos] = useTodoLocalStorage([],'todos');
-  // const uncompletedTasks = todos.filter(todo => todo.isChecked).length;
+  const uncompletedTasks = todos.filter((todo: any) => !todo.isChecked).length;
   const [events] = useCalendarLocalStorage([], 'calendar');
 
   return (
@@ -29,14 +29,15 @@ export default function App() {
        w-[450px]  md:w-[650px] lg:w-[750px]">
       <div className="flex justify-between gap-7">
       <div className="text-center bg-white dark:bg-black w-full  h-48 rounded-md shadow"><h1 className="text-xl mb-7  dark:text-white">Progress</h1>
-      <div className="radial-progress  text-orange-500" style={{ "--value": "70", "--size": "7rem" }}>
-        70%</div></div>
+      <h1 className="mt-10 text-6xl">
+        {uncompletedTasks}</h1></div>
       <div className="text-center items-center bg-white
-      w-full h-48 rounded-md shadow dark:bg-black dark:text-white"><h1 className="text-xl ">Reward</h1></div>
+      w-full h-48 rounded-md shadow dark:bg-black dark:text-white"><h1 className="text-xl ">Reward</h1>
+      <h2 className="mt-[4rem]">Travel Trip</h2></div>
       </div>
       <div className="px-4 py-4 bg-white w-full mt-8 h-[575px] rounded-md shadow dark:bg-black"><h1 className="text-xl dark:text-white">Today Activity</h1><hr className="mt-5"></hr>
       {todos.map((todo: any, index: any) => (
-        <UncheckedTodo key={index} todo={todo} index={index}/>
+        <UncheckedTodo key={index} todo={todo} index={index} isChecked={todo.isChecked}/>
         ))}
       </div>
       </div>
