@@ -34,7 +34,7 @@ export default function AddEditTodo({
   function addNewTodo(){
     const todoDate = new Date();
       const formattedDate =  formatDate(todoDate);
-      const updatedTodo = [...todos, {title: todoTitle, detail: todoDetail, date: formattedDate }];
+      const updatedTodo = [...todos, {title: todoTitle, detail: todoDetail, date: formattedDate, isChecked: false }];
       setTodos(updatedTodo);
       setTodoTitle('');
       setTodoDetail('');

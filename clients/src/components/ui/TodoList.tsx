@@ -12,6 +12,7 @@ export default function TodoList({onDelete ,todos, handleEdit}: any) {
         date={todo.date}
         onEdit={() => handleEdit(todo)}
         onDelete={() => onDelete(index)}
+        isChecked={todo.isChecked}
       />
     ))}
     </div>
