@@ -113,9 +113,8 @@ export default function AddEditTodo({
       <div className="flex flex-col gap-2 mt-4">
       <label className="text-xs text-slate-400">DETAILS</label>
         <textarea
-          
-          value={todoDetail}
-          onChange={handleTodoDetailsChange}
+        value={todoDetail}
+        onChange={handleTodoDetailsChange}
         className="text-sm text-slate-900 outline-none bg-gray-200 p-2 rounded resize-none"
         placeholder="Write something here..."
         rows={10}
