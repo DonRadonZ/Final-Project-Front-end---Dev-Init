@@ -5,7 +5,7 @@
 
 <div align="center">
 
-<a href="clock-note-mqyzmwkqq-supachai-sinkaseams-projects.vercel.app">View Demo</a>
+<a href="https://clock-note.vercel.app/">View Demo</a>
 •
 <a href="https://github.com/DonRadonZ/E-commerce-Dashboard/issues">Report Bug</a>
 •
