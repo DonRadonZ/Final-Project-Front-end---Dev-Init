@@ -107,7 +107,7 @@ For people who want to make changes to your project, it's helpful to have some d
 
 You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser. -->
 
-## Authors and acknowledgment
+## Authors
  **Supachai Sinkaseam**
 
 * LinkedIn - [@supachai-s-40650a104](https://www.linkedin.com/in/supachai-s-40650a104/)
@@ -119,3 +119,5 @@ Feel free to contact me with any question or feedback
 ## License
 MIT
 
+## Acknowledgment
+This part develop as part of DevInit#2 Project for Frontend Developer Final Project. Special thank for borntodev team for great opportunity learning and use my skill for awesome project.
