@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useEffect } from "react";
-import { useLocalStorageState } from "./useLocalStorageState";
+import { useLocalStorageState } from '../hook/useLocalStorageState';
+
 
 
 type DarkModeCtxType = {

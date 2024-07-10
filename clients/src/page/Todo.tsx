@@ -1,13 +1,13 @@
 import { useState } from "react";
 import AddEditTodo from "../features/todo/AddEditTodo";
 import Modal from "react-modal";
-import useTodoLocalStorage from "../features/todo/useTodoLocalStorage";
+import { useLocalStorageState } from "../hook/useLocalStorageState";
 import TodoList from "../components/ui/TodoList";
 import Swal from "sweetalert2";
 
 
 export default function Todo() {
-  const [todos, setTodos] = useTodoLocalStorage([], 'todos')
+  const [todos, setTodos] = useLocalStorageState([], 'todos')
   
   // const [editingTodo, setEditingTodo] = useState(null);
   const [searchTodo, setSearchTodo] = useState('');

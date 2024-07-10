@@ -1,14 +1,15 @@
 import { ChangeEvent, useState } from "react";
 import NoteList from "../components/ui/NoteList";
-import AddEditNotes from "../features/note/AddEditNotes";
+import AddEditNotes from "../features/note/AddEditNote";
 import Modal from "react-modal";
-import useNoteLocalStorage from "../features/note/useNoteLocalStorage";
+
 import Swal from "sweetalert2";
+import { useLocalStorageState } from "../hook/useLocalStorageState";
 
 
 
 export default function Notes() {
-  const [notes, setNotes] = useNoteLocalStorage([],'notes');
+  const [notes, setNotes] = useLocalStorageState([],'notes');
   const [noteTitle, setNoteTitle] = useState("");
   const [noteDescription, setNoteDescription] = useState("");
 

@@ -7,7 +7,6 @@ module.exports = {
     'plugin:react-hooks/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
@@ -17,5 +16,4 @@ module.exports = {
     ],
     "@typescript-eslint/no-explicit-any": ["off"]
   },
-
 }

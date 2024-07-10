@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import AppLayout from './components/ui/AppLayout.tsx';
+import AppLayout from './components/ui/AppLayout';
 
-import Todo from './page/Todo.tsx';
-import Notes from './page/Notes.tsx';
-import CalendarPage from './page/Calendar.tsx';
-import Dashboard from './page/Dashboard.tsx';
+import Todo from './page/Todo';
+import Notes from './page/Notes';
+import CalendarPage from './page/Calendar';
+import Dashboard from './page/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -37,5 +37,3 @@ export default function App() {
     <RouterProvider router={router} />
   )
 }
-
-

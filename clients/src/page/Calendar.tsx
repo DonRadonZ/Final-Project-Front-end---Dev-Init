@@ -3,12 +3,12 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from '@fullcalendar/daygrid';import interactionPlugin from '@fullcalendar/interaction';
 import Modal from "react-modal";
 import AddEvent from "../features/calendar/AddEvent";
-import useCalendarLocalStorage from "../features/calendar/useCalendarLocalStorage";
+import { useLocalStorageState } from "../hook/useLocalStorageState";
 
 
 
 export default function CalendarPage() {
-  const [events, setEvents] = useCalendarLocalStorage([], 'calendar');
+  const [events, setEvents] = useLocalStorageState([], 'calendar');
   const [eventTitle, setEventTitle] = useState('');
   const [eventDate, setEventDate] = useState('');
 

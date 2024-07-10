@@ -1,13 +1,14 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from '@fullcalendar/daygrid'
-import useCalendarLocalStorage from "../features/calendar/useCalendarLocalStorage";
-import useTodoLocalStorage from "../features/todo/useTodoLocalStorage";
+
+
 import UncheckedTodo from "../features/todo/UncheckedTodo";
+import { useLocalStorageState } from "../hook/useLocalStorageState";
 
 export default function Dashboard() {
-    const [todos] = useTodoLocalStorage([],'todos');
+    const [todos] = useLocalStorageState([],'todos');
     const uncompletedTasks = todos.filter((todo: any) => !todo.isChecked).length;
-    const [events] = useCalendarLocalStorage([], 'calendar');
+    const [events] = useLocalStorageState([], 'calendar');
   return (
     <div>
     <div className="flex justify-between flex-col mx-6 sm:flex-col md:flex-col lg:flex-row md:gap-5 xl:gap-20">
