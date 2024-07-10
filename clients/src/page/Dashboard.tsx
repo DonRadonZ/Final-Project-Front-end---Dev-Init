@@ -27,7 +27,7 @@ export default function Dashboard() {
        w-[450px]  md:w-[650px] lg:w-[750px]">
       <div className="flex justify-between gap-7">
       <div className="text-center bg-white dark:bg-black w-full  h-48 rounded-md shadow"><h1 className="text-xl mb-7  dark:text-white">Progress</h1>
-      <h1 className="mt-10 text-6xl">
+      <h1 className="mt-10 text-6xl dark:text-white">
         {uncompletedTasks}</h1></div>
       <div className="text-center items-center bg-white
       w-full h-48 rounded-md shadow dark:bg-black dark:text-white"><h1 className="text-xl ">Reward</h1>
