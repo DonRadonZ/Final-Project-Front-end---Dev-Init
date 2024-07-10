@@ -57,7 +57,7 @@ export default function Notes() {
   function onDeleteNote(index: any) {
     Swal.fire({
       title: "Delete Note",
-      text: "Are you sure do you wnat to delete this note",
+      text: "Are you sure do you want to delete this note",
       icon: "warning",
       confirmButtonText:"Sure",
       confirmButtonColor: "Red",
