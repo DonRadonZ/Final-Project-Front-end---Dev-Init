@@ -70,7 +70,7 @@ export default function Notes() {
       setNotes(newTodos);
       Swal.fire({
         title: "Delete Successful",
-        text: "Your task delete successful",
+        text: "Your note delete successful",
         icon: "success"
       })
       }
